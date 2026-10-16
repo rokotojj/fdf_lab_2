@@ -1,0 +1,18 @@
+[project]
+name = "fdf"
+version = "1.0"
+description = "Каркасная 3D-модель карты высот (FdF) на Python"
+requires-python = ">=3.12"
+
+[tool.pytest.ini_options]
+testpaths = ["tests"]
+pythonpath = ["."]
+
+[tool.mypy]
+strict = true
+
+[tool.ruff]
+line-length = 99
+
+[tool.ruff.lint]
+select = ["E", "W", "F", "I", "B", "UP", "SIM"]
