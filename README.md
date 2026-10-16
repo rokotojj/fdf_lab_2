@@ -86,11 +86,6 @@ mypy --strict fdf main.py
 ruff check .
 ```
 
-То же самое GitHub Actions запускает при каждом push и pull request
-(`.github/workflows/ci.yml`):
-
-[![checks](../../actions/workflows/ci.yml/badge.svg)](../../actions/workflows/ci.yml)
-
 # Лицензия
 
 MIT, см. [LICENSE](LICENSE).
