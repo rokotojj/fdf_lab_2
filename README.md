@@ -16,11 +16,11 @@
 python -m venv .venv
 .venv\Scripts\activate              # Windows
 source .venv/bin/activate           # Linux, macOS
-pip install -r requirements-dev.txt
+pip install -r requirements.txt
 python main.py maps/42.fdf
 ```
 
-`requirements-dev.txt` нужен только для тестов и проверок, сама программа обходится без него.
+`requirements.txt` нужен только для тестов и проверок, сама программа обходится без него.
 
 Если аргументов не один, программа печатает подсказку и выходит с кодом 2.
 Если файла нет или в нём ошибка, пишет причину в stderr и выходит с кодом 1.
@@ -76,7 +76,7 @@ python main.py maps/42.fdf
 | `tests/` | тесты pytest |
 | `maps/` | карты |
 | `docs/` | снимок экрана для README |
-| `.github/workflows/ci.yml` | проверки в GitHub Actions |
+| `.github/workflows/ci.yml` | CI/CD в GitHub Actions: проверки и релиз |
 
 ## Тесты
 
@@ -85,6 +85,15 @@ pytest -q
 mypy --strict fdf main.py
 ruff check .
 ```
+
+То же самое GitHub Actions запускает при каждом push и pull request
+(`.github/workflows/ci.yml`):
+
+[![CI/CD](https://github.com/rokotojj/fdf_lab_2/actions/workflows/ci.yml/badge.svg)](https://github.com/rokotojj/fdf_lab_2/actions/workflows/ci.yml)
+
+Релиз собирает тот же workflow: Actions → CI/CD → Run workflow (версия `v1.0`)
+или push тега `v*`. Сначала проходят проверки, потом создаются тег, архив проекта
+и релиз на странице [Releases](https://github.com/rokotojj/fdf_lab_2/releases).
 
 # Лицензия
 
